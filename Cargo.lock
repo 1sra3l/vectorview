@@ -308,8 +308,9 @@ dependencies = [
 
 [[package]]
 name = "rpg-stat"
-version = "4.0.0"
-source = "git+https://github.com/1sra3l/rpg-stat.git#3d58c840ae7b9524d4a9296dfcf0cae29b0d7676"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "00d6a62a2d7d2cc6036c013aae07f508026ef22aa1be27ab5283887456499eeb"
 dependencies = [
  "clap",
  "num",
