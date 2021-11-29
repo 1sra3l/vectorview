@@ -1,0 +1,20 @@
+[package]
+name = "vectorview"
+version = "0.1.0"
+edition = "2021"
+authors = ["Israel Dahl <israeldahl@protonmail.com>"]
+description = "A library to create vector images"
+keywords = ["svg", "art", "programmatic", "generate", "generator", "scalable", "vector", "graphics"]
+categories = []#"game-development", "command-line-utilities"]
+readme = "README.md"
+license-file = "LICENSE"
+repository = "https://github.com/1sra3l/vectorview"
+documentation = "https://docs.rs/vectorview/"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+svg = "0.10"
+rpg-stat = {version = "3.0", optional = true}
+
+[features]
+rpg = ["rpg-stat"]
