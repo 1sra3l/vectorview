@@ -2,7 +2,6 @@
 # Ear
 
 */
-use svg::node::element::{Ellipse, Rectangle, path::Data, Path};
 use svg::node::element::Group;
 use crate::utils::*;
 
@@ -12,7 +11,9 @@ Make the default ear
 pub fn make_ear_default(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -> Group {
     make_ear_traditional(x, y, w, h, ear_color, left)
 }
-
+pub fn make_ear_animal_default(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -> Group {
+    make_ear_rodent(x, y, w, h, ear_color, left)
+}
 /*
 Make a traditional ear
 */
@@ -39,4 +40,19 @@ pub fn make_ear_traditional(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:boo
          .add(ear)
          .add(shadow)
          .add(ear_thing)
+}
+/*
+Make a traditional ear
+*/
+pub fn make_ear_rodent(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -> Group {
+    let ear = make_ellipse(x, y, w, h, ear_color);
+    let spacer:f64 = w / 4.0;
+    let x1:f64 = x + spacer;
+    let y1:f64 = y + spacer;
+    let w1:f64 = w - (2.0 * spacer);
+    let h1:f64 = h - (2.0 * spacer);
+    let shadow = make_ellipse_shadow(x1,y1,w1,h1,"black");
+    Group::new()
+         .add(ear)
+         .add(shadow)
 }

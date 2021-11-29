@@ -1,5 +1,5 @@
 use crate::enums::{Teeth, Expression};
-use crate::svg::VectorView;
+use crate::body::VectorView;
 use svg::node::element::Group;
 
 impl VectorView for Expression{

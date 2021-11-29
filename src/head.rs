@@ -14,6 +14,12 @@ pub fn make_head_default(x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Group {
     make_head_traditional(x, y, w, h, skin_color)
 }
 /*
+Make default Animal Head shape
+*/
+pub fn make_animal_head_default(x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Group {
+    make_head_rodent(x, y, w, h, skin_color)
+}
+/*
 Make traditional Head shape
 */
 pub fn make_head_traditional(x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Group {    
@@ -24,12 +30,31 @@ pub fn make_head_traditional(x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Gro
     let jaw_w:f64 = (w / 7.0) * 3.0;
     let jaw_y:f64 = y + h - chin;
     let cheek_w:f64 = (w / 5.0) * 4.0;
+    let cheek_h:f64 = h - (h /50.0);
     let jaw_x:f64 = x + ((w - jaw_w) / 2.0);
     let face = make_ellipse(x, y, w, face_h, skin_color);
-    let cheeks = make_ellipse(center_x - (cheek_w / 2.0), y, cheek_w, h, skin_color);
+    let cheeks = make_ellipse(center_x - (cheek_w / 2.0), y, cheek_w, cheek_h, skin_color);
     let jaw = make_rectangle_roundness(jaw_x, jaw_y, jaw_w, jaw_h, skin_color, 7.0);
     Group::new()
           .add(cheeks)
           .add(face)
           .add(jaw)
+}
+pub fn make_head_rodent(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {    
+    let offset:f64;
+    let radius:f64;
+    if h > w {
+        offset = h - w;
+        radius = w;
+    } else {
+        offset = w - h;
+        radius = h;
+    }
+    make_head_puppet(x,y + offset, radius, radius, color)
+}
+/*
+Make Puppet Head shape
+*/
+pub fn make_head_puppet(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {    
+    Group::new().add(make_ellipse(x, y, w, h, color))
 }

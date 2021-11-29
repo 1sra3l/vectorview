@@ -1,0 +1,22 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<g>
+<rect fill="red" height="32" rx="0.4" width="32" x="0" y="0"/>
+<g>
+<ellipse cx="16" cy="12.8" rx="16" ry="12.8" style="opacity:1;fill:green"/>
+<g>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="6.4" y="25.6"/>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="9.644444444444446" y="25.6"/>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="12.888888888888891" y="25.6"/>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="16.133333333333336" y="25.6"/>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="19.37777777777778" y="25.6"/>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="0.7" width="2.7111111111111117" x="22.622222222222224" y="25.6"/>
+</g>
+<rect fill="green" height="6.399999999999999" opacity="1.0" rx="2" width="22.400000000000002" x="4.800000000000001" y="21.6"/>
+<ellipse cx="16" cy="22.4" rx="1.6" ry="3.2" style="opacity:0.4;fill:black;"/>
+<ellipse cx="22.400000000000002" cy="19.2" rx="3.2" ry="3.2" style="opacity:0.4;fill:black;"/>
+<ellipse cx="9.600000000000001" cy="19.2" rx="3.2" ry="3.2" style="opacity:0.4;fill:black;"/>
+<path d="M6.4,16 L12.8,15.2 L12.8,14.4 L6.4,15.2 z" fill="black" opacity="0.4"/>
+<path d="M19.2,14.4 L25.6,15.2 L25.6,16 L19.2,15.2 z" fill="black" opacity="0.4"/>
+</g>
+</g>
+</svg>

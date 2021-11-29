@@ -5,6 +5,12 @@
 use svg::node::element::{Ellipse, Rectangle, path::Data, Path};
 use svg::node::element::Group;
 
+pub const HALF_DIVISOR:f64 = 2.0;
+pub const THIRD_DIVISOR:f64 = 3.0;
+pub const QUARTER_DIVISOR:f64 = 4.0;
+pub const EIGHT_DIVISOR:f64 = 8.0;
+pub const TWELFTH:f64 = 12.0;
+
 /*
 Built in function makes the half circle down portion of a mouth
 */
@@ -104,11 +110,11 @@ pub fn make_slant(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64, left_faci
         y1 = y + h;
         y2 = y1 - h;
         y3 = y2 - h;
-} else{
+    } else{
         y1 = y - h;
         y2 = y1 + h;
         y3 = y2 + h;
-}
+    }
     let line = Data::new()
             .move_to((x, y1))
             .line_to((x2, y2))

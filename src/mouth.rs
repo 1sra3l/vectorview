@@ -1,6 +1,9 @@
 /*!
+# Mouth
+
+
 */
-use svg::node::element::{Ellipse, Filter, Rectangle, path::Data, Path};
+
 use svg::node::element::Group;
 use crate::enums::Teeth;
 use crate::utils::*;

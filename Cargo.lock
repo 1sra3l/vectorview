@@ -308,9 +308,8 @@ dependencies = [
 
 [[package]]
 name = "rpg-stat"
-version = "3.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00d6a62a2d7d2cc6036c013aae07f508026ef22aa1be27ab5283887456499eeb"
+version = "4.0.0"
+source = "git+https://github.com/1sra3l/rpg-stat.git#2f64b7c0aa29b94196ed15d8c80b7c7b2b9664a5"
 dependencies = [
  "clap",
  "num",
@@ -438,7 +437,7 @@ checksum = "8ccb82d61f80a663efe1f787a51b16b5a51e3314d6ac365b08639f52387b33f3"
 
 [[package]]
 name = "vectorview"
-version = "0.1.1"
+version = "1.0.0"
 dependencies = [
  "rpg-stat",
  "svg",
