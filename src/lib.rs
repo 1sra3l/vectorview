@@ -1,6 +1,12 @@
 pub mod enums;
 pub mod svg;
 pub mod prelude;
+pub mod utils;
+pub mod teeth;
+pub mod nose;
+pub mod ear;
+pub mod eye;
+
 
 #[cfg(feature = "rpg")]
 pub mod rpgstat;

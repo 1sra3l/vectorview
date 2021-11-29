@@ -12,5 +12,5 @@ This uses the crate [`svg`](https://docs.rs/svg) to process all SVG related func
 
 Initial work:
 
-![Alt text](https://github.com/1sra3l/vectorview/green.svg?raw=true "Green")
+![Alt text](https://raw.githubusercontent.com/1sra3l/vectorview/main/green.svg?raw=true "Green")
 
