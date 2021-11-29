@@ -2,12 +2,20 @@ use std::fmt;
 use svg::Document;
 use svg::node::element::{Ellipse, Filter, Rectangle, path::Data, Path};
 use svg::node::element::Group;
+
+// Enumerators for shapes styles
 use crate::enums::Teeth;
+
+// utility drawing functions
 use crate::utils::*;
+// modules for parts
 use crate::teeth::*;
 use crate::nose::*;
 use crate::eye::*;
 use crate::ear::*;
+use crate::head::*;
+use crate::mouth::*;
+
 /*
 This trait builds vector graphics for characters and creatures
 */
@@ -81,9 +89,15 @@ Make skull uses default method unless overridden
 Make mouth uses default method unless overridden
 */
     fn make_mouth(&self, x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -> Group {
-        self.make_smile_mouth(x,y,w,h,color.clone(), teeth)
+        make_mouth_default(x,y,w,h,color.clone(), teeth)
     }
-
+/*
+Make Head
+*/
+    fn make_head(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Group {
+    //face
+        make_head_default(x, y, w, h, skin_color)
+    }
 //----------------------------------------------------------------------------------------------------------------------------------------------
 // # DEFAULT FUNCTIONS
 //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -161,28 +175,7 @@ The fully configurable body.
                  .add(head)
     }
 
-/*
-Make Head
-*/
-    fn make_head(&self, x:f64, y:f64, w:f64, h:f64, skin_color:&str) -> Group {
-    //face
-        
-        let center_x:f64 = x + (w / 2.0);
-        let chin:f64 = h / 4.0;
-        let face_h:f64 = h - chin;
-        let jaw_h:f64 = h - face_h;
-        let jaw_w:f64 = (w / 7.0) * 3.0;
-        let jaw_y:f64 = y + h - chin;
-        let cheek_w:f64 = (w / 5.0) * 4.0;
-        let jaw_x:f64 = x + ((w - jaw_w) / 2.0);
-        let face = make_ellipse(x, y, w, face_h, skin_color);
-        let cheeks = make_ellipse(center_x - (cheek_w / 2.0), y, cheek_w, h, skin_color);
-        let jaw = make_rectangle_roundness(jaw_x, jaw_y, jaw_w, jaw_h, skin_color, 7.0);
-        Group::new()
-              .add(cheeks)
-              .add(face)
-              .add(jaw)
-    }
+
 
 /*
 Make full face
@@ -301,22 +294,5 @@ Make skull
                     .add(eye_brow_l)
                     
     }
-
-
-/*
-Make the default "smile" mouth
-*/
-    fn make_smile_mouth(&self, x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -> Group {
-        let path = make_down_part(x, y, w, h, "black", 1.0);
-        let spacer = w / 24.0;
-        let tooth_w:f64 = w - (2.0 * spacer);
-        let tooth_h:f64 = h / 4.0;
-        let tooth = self.make_teeth(x + spacer, y, tooth_w, tooth_h, color, teeth);
-        Group::new()
-                 .add(path)
-                 .add(tooth)
-    }
-    
-
 
 }

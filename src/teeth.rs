@@ -20,7 +20,7 @@ pub fn make_teeth_default(x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -
     Teeth::Sharp => {
         let tooth = make_sharp_row(x, y, w, h, color, 1.0, 7);
         return Group::new().add(tooth)
-    },
+    },//Teeth::Canine => {}, Teeth::Beak => {},
     _=>{
         let tooth = make_rectangle_roundness(x, y, w, h, color, 0.4);
         return Group::new().add(tooth)
@@ -28,7 +28,7 @@ pub fn make_teeth_default(x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -
     }
 }
 /*
-Get single tooth
+Get a single flat tooth
 */
 pub fn get_tooth(x:f64, y:f64, w:f64, h:f64, color:&str, roundness:f64, amount:usize, current:usize) -> Rectangle {
     let amount:f64 = amount as f64;
@@ -48,7 +48,7 @@ pub fn get_tooth(x:f64, y:f64, w:f64, h:f64, color:&str, roundness:f64, amount:u
     make_rectangle_roundness(new_x,y,new_w,h,color,roundness)
 }
 /*
-Make teeth lines
+Make row of teeth
 */
 pub fn make_tooth_row(x:f64, y:f64, w:f64, h:f64, color:&str, roundness:f64, amount:usize) -> Group {
     let mut retval = Group::new();
@@ -59,7 +59,7 @@ pub fn make_tooth_row(x:f64, y:f64, w:f64, h:f64, color:&str, roundness:f64, amo
     retval
 }
 /*
-Get single tooth
+Get single fang
 */
 pub fn get_fang(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64, amount:usize, current:usize) -> Path {
     let amount:f64 = amount as f64;
@@ -75,7 +75,7 @@ pub fn get_fang(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64, amount:usiz
     make_sharp(new_x,y,new_w,color,opacity)
 }
 /*
-Make teeth lines
+Make row of sharp teeth
 */
 pub fn make_sharp_row(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64, amount:usize) -> Group {
     let mut retval = Group::new();

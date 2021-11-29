@@ -5,9 +5,17 @@
 use svg::node::element::{Ellipse, Rectangle, path::Data, Path};
 use svg::node::element::Group;
 use crate::utils::*;
-
 /*
 Make the default eye
+This function calls `make_eye_traditional`
+
+*/
+pub fn make_eye_default(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
+    make_eye_traditional(x, y, w, h, color)
+}
+
+/*
+Make the simple no iris eye
 */
 pub fn make_eye_simple(x:f64, y:f64, w:f64, h:f64) -> Group {
     let white = make_ellipse(x,y,w,h,"white");
@@ -31,10 +39,12 @@ pub fn make_eye_simple(x:f64, y:f64, w:f64, h:f64) -> Group {
             .add(pupil);
     g
 }
+
+
 /*
-Make the default eye
+Make the traditional eye looking straight on with an iris
 */
-pub fn make_eye_default(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
+pub fn make_eye_traditional(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
     let white = make_ellipse(x,y,w,h,"white");
     let shadow = make_ellipse_shadow(x,y + 1.0,w,h,"black");
     let iris_x:f64 = x + (w / 4.0) + (w / 10.0);

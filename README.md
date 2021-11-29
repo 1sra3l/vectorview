@@ -14,3 +14,25 @@ Initial work:
 
 ![Alt text](https://raw.githubusercontent.com/1sra3l/vectorview/main/green.svg?raw=true "Green")
 
+# Modules
+
+These are the different modules containing various shape drawing functions
+
+## Ear
+
+ * Traditional ear
+
+## Eye
+
+ * Traditional eye.
+ * Cartoon eye.
+
+## Nose
+ * Cartoon muppet nose
+ * Traditional nose
+
+## Teeth
+ * Traditional flat teeth
+ * Sharp teeth row
+ * individual flat teeth row
+

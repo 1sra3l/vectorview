@@ -7,9 +7,16 @@ use svg::node::element::Group;
 use crate::utils::*;
 
 /*
-Make ear
+Make the default ear
 */
 pub fn make_ear_default(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -> Group {
+    make_ear_traditional(x, y, w, h, ear_color, left)
+}
+
+/*
+Make a traditional ear
+*/
+pub fn make_ear_traditional(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -> Group {
     let ear = make_ellipse(x, y, w, h, ear_color);
     let spacer:f64 = w / 4.0;
     let x1:f64 = x + spacer;
@@ -32,4 +39,4 @@ pub fn make_ear_default(x:f64, y:f64, w:f64, h:f64, ear_color:&str, left:bool) -
          .add(ear)
          .add(shadow)
          .add(ear_thing)
-    }
+}
