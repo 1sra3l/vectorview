@@ -9,7 +9,7 @@ use crate::teeth::*;
 /*
 Make the default mouth
 */
-pub fn make_default_mouth(x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -> Group {
+pub fn make_mouth_default(x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -> Group {
     make_smile_mouth(x, y, w, h, color, teeth)
 }
 /*
