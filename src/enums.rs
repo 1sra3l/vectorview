@@ -13,6 +13,7 @@ pub enum Teeth {
     Straight,
     Sharp,
     Canine,
+    Rodent,
     Beak,
     None,
 }

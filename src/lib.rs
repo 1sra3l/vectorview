@@ -53,6 +53,8 @@ pub mod icon;
 pub mod trunk;
 pub mod arm;
 pub mod leg;
+pub mod calculator;
+
 #[cfg(feature = "rpg")]
 pub mod rpgstat;
 

@@ -5,8 +5,13 @@
 */
 use svg::node::element::Group;
 use crate::utils::*;
+use crate::calculator::*;
 
-pub fn make_trunk(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
+pub fn make_trunk_default(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
+    let y = get_trunk_y(y, h);
+    let x = get_trunk_x(x, w);
+    let w = get_trunk_width(w);
+    let h = get_trunk_height(h);
     let pecs = make_pecs(x, y, w, h, color);
     let abs = make_abs(x, y, w, h, color);
     let delt_r = make_deltoid(x, y, w, h, color, false);

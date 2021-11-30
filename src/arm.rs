@@ -6,11 +6,16 @@
 use svg::node::element::Group;
 use crate::utils::*;
 use crate::enums::Pose;
+use crate::calculator::*;
 
 /*
 Make an arm
 */
 pub fn make_arm_default(x:f64, y:f64, w:f64, h:f64, color:&str, left:bool) -> Group {
+    let y = get_trunk_y(y, h);
+    let w = get_arm_width(w);
+    let h = get_arm_length(h);
+    let x = get_arm_x(x, w, left);
     let pose = Pose::None;
     let bicep = make_bicep(x, y , w, h, color, pose, left);
     let brach = make_brach(x, y, w, h, color, pose, left);

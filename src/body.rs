@@ -19,7 +19,7 @@ use crate::icon::*;
 use crate::trunk::*;
 use crate::arm::*;
 use crate::leg::*;
-
+use crate::calculator::*;
 /*
 This trait builds vector graphics for characters and creatures
 */
@@ -59,11 +59,17 @@ Make teeth, override for different teeth
     fn make_teeth(&self, x:f64, y:f64, w:f64, h:f64, color:&str, teeth:Teeth) -> Group {
         make_teeth_default(x, y, w, h, color, teeth)
     }
-    /*
+/*
 Make nose uses default method unless overridden
 */
     fn make_nose(&self, x:f64, y:f64, w:f64, h:f64, nose_color:&str) -> Group {
         make_nose_default(x,y,w,h,nose_color)
+    }
+/*
+Make nose uses default method unless overridden
+*/
+    fn make_trunk(&self, x:f64, y:f64, w:f64, h:f64, nose_color:&str) -> Group {
+        make_trunk_default(x,y,w,h,nose_color)
     }
 /*
 Draw a face uses default method unless overridden
@@ -155,34 +161,33 @@ The fully configurable body.
         let half_w:f64 = w / HALF_DIVISOR;
         let center_x:f64 = x + half_w;
         let quarter_w:f64 = w / 4.0;
-        let head_h:f64 = h / 6.5;
-        let head_w:f64 = quarter_w;
+        let head_h:f64 = get_head_height(h);
+        let head_w:f64 = get_head_width(w);
         let spacer:f64 = head_h / 4.0;
         // center in image based on widths
-        let head_x:f64 = ((x + w) / HALF_DIVISOR) - (head_w / HALF_DIVISOR);
-        let torso_h:f64 = head_h * 2.0;
-        let torso_w:f64 = half_w;
-        let arm_length:f64 = quarter_w;
-        let arm_thickness:f64 = torso_h / 5.0;
+        let head_x:f64 = get_head_x(x, w);//((x + w) / HALF_DIVISOR) - (head_w / HALF_DIVISOR);
+        let torso_h:f64 = get_trunk_height(h);
+        let torso_w:f64 = get_trunk_width(w);
         let leg_thickness:f64 = torso_w / 3.0;
-        let leg_length:f64 = arm_length * 2.0;
-        let hip_h:f64 = head_h;
+        let leg_length:f64 = half_w;
+        let hip_h:f64 = get_hip_height(h);
         let leg_y:f64 = y + torso_h + hip_h;
+        let hip_y:f64 = get_hip_y(y, h);
 
         // make the groups
         let debug = make_rectangle(x, y, w, h, "red");
         let head = self.make_face(head_x, y, head_w, head_h, skin_color, eye_color, nose_color, hair_color, teeth_color, false, teeth);
         let hand = skin_color;
-        let y = (y + head_h) - spacer;
+        //let y = (y + head_h) - spacer;
         
-        let clothes1 = make_trunk(center_x - quarter_w, y, torso_w, torso_h, clothes_color1);
-        let l_arm = self.make_arm(x, y, arm_length, torso_h, clothes_color1, true);
-        let r_arm = self.make_arm(x, y, arm_length, torso_h, clothes_color1, false);
-        let hips = make_rectangle(center_x - quarter_w, y + torso_h - spacer, torso_w, hip_h, clothes_color2);
-        let leg1 = self.make_leg(x, y + torso_h, leg_thickness, leg_length, clothes_color2, true);
-        let leg2 = self.make_leg(x, y + torso_h, leg_thickness, leg_length, clothes_color2, false);
+        let clothes1 = self.make_trunk(x, y, w, h, clothes_color1);
+        let l_arm = self.make_arm(x, y, w, h, clothes_color1, true);
+        let r_arm = self.make_arm(x, y, w, h, clothes_color1, false);
+        let hips = make_rectangle(center_x - quarter_w, hip_y, torso_w, hip_h, clothes_color2);
+        let leg1 = self.make_leg(x, y, w, h, clothes_color2, true);
+        let leg2 = self.make_leg(x, y, w, h, clothes_color2, false);
         Group::new()
-                 //.add(debug)
+                 .add(debug)
                  .add(hips)
                  //.add(leg1)
                  .add(leg2)
