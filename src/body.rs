@@ -86,14 +86,14 @@ Draw an animal face uses default method unless overridden
 /*
 Make an arm uses default method unless overridden
 */
-    fn make_leg(&self, x:f64, y:f64, length:f64, thickness:f64, clothes_color:&str, left:bool) -> Group {
-        make_arm_default(x, y, length, thickness, clothes_color, left)
+    fn make_leg(&self, x:f64, y:f64, w:f64, h:f64, clothes_color:&str, left:bool) -> Group {
+        make_leg_default(x, y, w, h, clothes_color, left)
     }
 /*
 Make an arm uses default method unless overridden
 */
-    fn make_arm(&self, x:f64, y:f64, length:f64, thickness:f64, clothes_color:&str, left:bool) -> Group {
-        make_arm_default(x, y, length, thickness, clothes_color, left)
+    fn make_arm(&self, x:f64, y:f64, w:f64, h:f64, clothes_color:&str, left:bool) -> Group {
+        make_arm_default(x, y, w, h, clothes_color, left)
     }
 /*
 The fully configurable body uses default method unless overridden.
@@ -138,6 +138,13 @@ Make Head
     //face
         make_head_default(x, y, w, h, skin_color)
     }
+/*
+Make Armor
+*/
+    fn make_armor(&self, x:f64, y:f64, w:f64, h:f64, chest_color:&str, ab_color:&str, shoulder_color:&str, side_color:&str) -> Group {
+        make_armor_default(x, y, w, h, chest_color, ab_color, shoulder_color, side_color)
+    }
+    
 //----------------------------------------------------------------------------------------------------------------------------------------------
 // # DEFAULT FUNCTIONS
 //----------------------------------------------------------------------------------------------------------------------------------------------
@@ -178,22 +185,22 @@ The fully configurable body.
         let debug = make_rectangle(x, y, w, h, "red");
         let head = self.make_face(head_x, y, head_w, head_h, skin_color, eye_color, nose_color, hair_color, teeth_color, false, teeth);
         let hand = skin_color;
-        //let y = (y + head_h) - spacer;
         
-        let clothes1 = self.make_trunk(x, y, w, h, clothes_color1);
+        let clothes1 = make_armor_default(x, y, w, h, "gold", clothes_color2, nose_color, "black");
+        let leg1 = self.make_leg(x, y, w, h, clothes_color2, true);
+        let leg2 = self.make_leg(x, y, w, h, clothes_color2, false);
         let l_arm = self.make_arm(x, y, w, h, clothes_color1, true);
         let r_arm = self.make_arm(x, y, w, h, clothes_color1, false);
         let hips = make_rectangle(center_x - quarter_w, hip_y, torso_w, hip_h, clothes_color2);
-        let leg1 = self.make_leg(x, y, w, h, clothes_color2, true);
-        let leg2 = self.make_leg(x, y, w, h, clothes_color2, false);
+
         Group::new()
-                 .add(debug)
+                 //.add(debug)
                  .add(hips)
-                 //.add(leg1)
+                 .add(leg1)
                  .add(leg2)
-                 .add(clothes1)
                  .add(r_arm)
                  .add(l_arm)
+                 .add(clothes1)
                  .add(head)
     }
 

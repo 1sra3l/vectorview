@@ -30,6 +30,7 @@ pub fn make_arm_default(x:f64, y:f64, w:f64, h:f64, color:&str, left:bool) -> Gr
 
 */
 pub fn make_bicep(x:f64, y:f64, w:f64, h:f64, color:&str, pose:Pose, left:bool) -> Group {
+    let spacer:f64 = h / TWELFTH;
     let bicep_h:f64 = get_arm_length(h);
     let bicep_w:f64 = get_arm_width(w);
     let spacer:f64 = get_deltoid_spacer(w);
@@ -50,6 +51,7 @@ pub fn make_bicep(x:f64, y:f64, w:f64, h:f64, color:&str, pose:Pose, left:bool) 
 
 */
 pub fn make_brach(x:f64, y:f64, w:f64, h:f64, color:&str, pose:Pose, left:bool) -> Group {
+    let spacer:f64 = h / TWELFTH;
     let brach_h:f64 = get_arm_length(h);
     let brach_w:f64 = get_arm_width(w);
     let spacer:f64 = get_deltoid_spacer(w);

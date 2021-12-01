@@ -1,44 +1,61 @@
 <svg viewBox="0 0 64 128" xmlns="http://www.w3.org/2000/svg">
 <g>
-<rect fill="red" height="128" rx="0.4" width="64" x="0" y="0"/>
 <rect fill="#00004a" height="9.846153846153847" rx="0.4" width="32" x="16" y="59.07692307692308"/>
 <g>
 <g>
-<ellipse cx="18.282051282051285" cy="25.435897435897438" rx="8.205128205128206" ry="2.4615384615384617" style="opacity:1;fill:#00004a"/>
+<ellipse cx="22.4" cy="79.54285714285714" rx="6.4" ry="14.065934065934066" style="opacity:1;fill:#00004a"/>
+<rect fill="#00004a" height="28.13186813186813" opacity="1.0" rx="0.7" width="6.4" x="19.2" y="65.47692307692309"/>
 </g>
 <g>
-<ellipse cx="12.538461538461538" cy="41.02564102564102" rx="2.4615384615384617" ry="8.205128205128206" style="opacity:1;fill:#00004a"/>
-</g>
-</g>
-<g>
-<g>
-<ellipse cx="32" cy="29.53846153846154" rx="13.333333333333334" ry="9.846153846153847" style="opacity:1;fill:orange"/>
+<ellipse cx="22.4" cy="102.98608058608059" rx="6.4" ry="9.377289377289376" style="opacity:1;fill:#00004a"/>
+<rect fill="#00004a" height="28.13186813186813" opacity="1.0" rx="0.7" width="6.4" x="19.2" y="93.60879120879122"/>
 </g>
 <g>
-<ellipse cx="20" cy="27.282051282051285" rx="4" ry="4.923076923076923" style="opacity:1;fill:orange"/>
-</g>
-<g>
-<ellipse cx="44" cy="27.282051282051285" rx="4" ry="4.923076923076923" style="opacity:1;fill:orange"/>
-</g>
-<g>
-<rect fill="orange" height="22.974358974358974" opacity="1.0" rx="7" width="16.000000000000004" x="24" y="36.1025641025641"/>
-<ellipse cx="32" cy="34.46153846153847" rx="11.555555555555555" ry="14.76923076923077" style="opacity:1;fill:orange"/>
+<ellipse cx="19.2" cy="100.00879120879122" rx="3.2" ry="6.4" style="opacity:1;fill:#00004a"/>
 </g>
 </g>
 <g>
 <g>
-<ellipse cx="18.282051282051285" cy="25.435897435897438" rx="8.205128205128206" ry="2.4615384615384617" style="opacity:1;fill:orange"/>
+<ellipse cx="41.6" cy="79.54285714285714" rx="6.4" ry="14.065934065934066" style="opacity:1;fill:#00004a"/>
+<rect fill="#00004a" height="28.13186813186813" opacity="1.0" rx="0.7" width="6.4" x="38.400000000000006" y="65.47692307692309"/>
 </g>
 <g>
-<ellipse cx="12.538461538461538" cy="41.02564102564102" rx="2.4615384615384617" ry="8.205128205128206" style="opacity:1;fill:orange"/>
+<ellipse cx="41.6" cy="102.98608058608059" rx="6.4" ry="9.377289377289376" style="opacity:1;fill:#00004a"/>
+<rect fill="#00004a" height="28.13186813186813" opacity="1.0" rx="0.7" width="6.4" x="38.400000000000006" y="93.60879120879122"/>
+</g>
+<g>
+<ellipse cx="38.400000000000006" cy="100.00879120879122" rx="3.2" ry="6.4" style="opacity:1;fill:#00004a"/>
 </g>
 </g>
 <g>
 <g>
-<ellipse cx="10.205128205128206" cy="25.435897435897438" rx="8.205128205128206" ry="2.4615384615384617" style="opacity:1;fill:orange"/>
+<ellipse cx="50.95384615384615" cy="26.892307692307693" rx="9.846153846153847" ry="4" style="opacity:1;fill:orange"/>
 </g>
 <g>
-<ellipse cx="4.461538461538462" cy="41.02564102564102" rx="2.4615384615384617" ry="8.205128205128206" style="opacity:1;fill:orange"/>
+<ellipse cx="60" cy="35.93846153846154" rx="4" ry="9.846153846153847" style="opacity:1;fill:orange"/>
+</g>
+</g>
+<g>
+<g>
+<ellipse cx="13.046153846153846" cy="26.892307692307693" rx="9.846153846153847" ry="4" style="opacity:1;fill:orange"/>
+</g>
+<g>
+<ellipse cx="4" cy="35.93846153846154" rx="4" ry="9.846153846153847" style="opacity:1;fill:orange"/>
+</g>
+</g>
+<g>
+<g>
+<ellipse cx="32" cy="34.46153846153847" rx="11.555555555555555" ry="14.76923076923077" style="opacity:1;fill:black"/>
+<rect fill="#00004a" height="22.974358974358974" opacity="1.0" rx="0.7" width="16.000000000000004" x="24" y="36.1025641025641"/>
+</g>
+<g>
+<ellipse cx="32" cy="29.53846153846154" rx="13.333333333333334" ry="9.846153846153847" style="opacity:1;fill:gold"/>
+</g>
+<g>
+<ellipse cx="20" cy="27.282051282051285" rx="4" ry="4.923076923076923" style="opacity:1;fill:#76612d"/>
+</g>
+<g>
+<ellipse cx="44" cy="27.282051282051285" rx="4" ry="4.923076923076923" style="opacity:1;fill:#76612d"/>
 </g>
 </g>
 <g>

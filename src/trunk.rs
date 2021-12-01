@@ -19,10 +19,27 @@ pub fn make_trunk_default(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
     let debug = make_rectangle(x, y, w, h, "red");
     Group::new()
           //.add(debug)
+          .add(abs)
           .add(pecs)
           .add(delt_r)
           .add(delt_l)
+}
+pub fn make_armor_default(x:f64, y:f64, w:f64, h:f64, chest_color:&str, ab_color:&str, shoulder_color:&str, side_color:&str) -> Group {
+    let y = get_trunk_y(y, h);
+    let x = get_trunk_x(x, w);
+    let w = get_trunk_width(w);
+    let h = get_trunk_height(h);
+    let pecs = make_pecs(x, y, w, h, chest_color);
+    let abs = make_ab_armor(x, y, w, h, ab_color, side_color);
+    let delt_r = make_deltoid(x, y, w, h, shoulder_color, false);
+    let delt_l = make_deltoid(x, y, w, h, shoulder_color, true);
+    let debug = make_rectangle(x, y, w, h, "red");
+    Group::new()
+          //.add(debug)
           .add(abs)
+          .add(pecs)
+          .add(delt_r)
+          .add(delt_l)
 }
 /*
 # Deltoid maker
@@ -48,6 +65,15 @@ pub fn make_deltoid(x:f64, y:f64, w:f64, h:f64, color:&str, left:bool) -> Group 
 
 */
 pub fn make_abs(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
+         make_ab_armor(x, y, w, h, color, color) 
+}
+
+/*
+# Rectus abdominis + abdominal external oblique maker
+
+
+*/
+pub fn make_ab_armor(x:f64, y:f64, w:f64, h:f64, ab_color:&str, oblique_color:&str) -> Group {
     let y_spacer = h / TWELFTH;
     let deltoid_spacer:f64 = w / TWELFTH;
     let offset = 2.0 * deltoid_spacer;
@@ -60,11 +86,12 @@ pub fn make_abs(x:f64, y:f64, w:f64, h:f64, color:&str) -> Group {
     let obl_w:f64 = w - (w / 9.0);
     let obl_x:f64 = center_x - (obl_w / HALF_DIVISOR) + deltoid_spacer;
     let obl_h:f64 = h - (h / QUARTER_DIVISOR);
-    let abs = make_rectangle_roundness(abs_x, abs_y, abs_w- offset, abs_h, color, 7.0);
-    let obliq = make_ellipse(obl_x, y, obl_w- offset, obl_h, color);
+    let abs = make_rectangle_roundness(abs_x, abs_y, abs_w- offset, abs_h, ab_color, ROUNDNESS);//7.0);
+    let obliq = make_ellipse(obl_x, y, obl_w- offset, obl_h, oblique_color);
     Group::new()
-          .add(abs)
           .add(obliq)
+          .add(abs)
+          
 }
 /*
 # Pectoralis major maker

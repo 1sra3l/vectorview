@@ -143,6 +143,23 @@ pub fn get_head_x(x:f64, w:f64) -> f64 {
     center - get_center(head_w)
 }
 /*
+# Leg  Width
+
+This calculates the general head to body ratio
+*/
+pub fn get_leg_width(num:f64) -> f64 {
+    num / 5.0
+}
+/*
+# Leg Length
+
+This calculates the general head to body ratio for a single segment of arm
+*/
+pub fn get_leg_length(num:f64) -> f64 {
+    let trunk = get_trunk_height(num);
+    trunk - (trunk /  3.5)
+}
+/*
 # Arm  Width
 
 This calculates the general head to body ratio
@@ -156,7 +173,8 @@ pub fn get_arm_width(num:f64) -> f64 {
 This calculates the general head to body ratio for a single segment of arm
 */
 pub fn get_arm_length(num:f64) -> f64 {
-    get_trunk_height(num)
+    let trunk = get_trunk_height(num);
+    get_center(trunk)
 }
 /*
 # Arm y coordinate
@@ -188,6 +206,10 @@ pub fn get_arm_x(x:f64, w:f64, left:bool) -> f64 {
     };
     println!("{} x:{}", output, x_return);
     x_return
+}
+/**/
+pub fn get_deltoid_spacer(w:f64) -> f64 {
+    get_trunk_width(w) / 10.0
 }
 
 /**/

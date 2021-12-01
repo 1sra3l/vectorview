@@ -4,13 +4,14 @@
 */
 use svg::node::element::{Ellipse, Rectangle, path::Data, Path};
 use svg::node::element::Group;
+use crate::calculator::*;
 
 pub const HALF_DIVISOR:f64 = 2.0;
 pub const THIRD_DIVISOR:f64 = 3.0;
 pub const QUARTER_DIVISOR:f64 = 4.0;
 pub const EIGHT_DIVISOR:f64 = 8.0;
 pub const TWELFTH:f64 = 12.0;
-
+pub const ROUNDNESS:f64 = 0.7;
 /*
 Built in function makes the half circle down portion of a mouth
 */
@@ -37,15 +38,32 @@ pub fn make_up_half(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64) -> Path
          .set("opacity", opacity.to_string().as_str())
          .set("d", mouth)
 }
+/*
+Make an upside-down tear shape
+*/
+pub fn make_up_tear(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64) -> Path {
+    let half_w:f64 = get_half(w);
+    let mid:f64 = x + half_w;
+    let mid_y:f64 = y + get_center(h);
+    let tear = Data::new()
+            .move_to((mid, y))
+            //smooth_quadratic_curve_by
+            .cubic_curve_by((x, mid_y, x + w, mid_y, mid, y))
+            .close();
+    Path::new()
+        .set("fill", color)
+         .set("opacity", opacity.to_string().as_str())
+         .set("d", tear)
+}
 
 /*
 Make an ellipse
 */
 pub fn make_ellipse(x:f64, y:f64, w:f64, h:f64, color:&str) -> Ellipse {
-    let cx:f64 = (w / 2.0) + x;
-    let cy:f64 = (h / 2.0) + y;
-    let rx:f64 = w / 2.0;
-    let ry:f64 = h / 2.0;
+    let cx:f64 = get_center(w) + x;
+    let cy:f64 = get_center(h) + y;
+    let rx:f64 = get_center(w);
+    let ry:f64 = get_center(h);
     let mut style:String = "opacity:1;fill:".to_string();
     style.push_str(color);
     Ellipse::new()
@@ -60,10 +78,10 @@ pub fn make_ellipse(x:f64, y:f64, w:f64, h:f64, color:&str) -> Ellipse {
 Make an ellipse that is semi-transparent for a shadow effect
 */
 pub fn make_ellipse_opacity(x:f64, y:f64, w:f64, h:f64, color:&str, opacity:f64) -> Ellipse {
-    let cx:f64 = (w / 2.0) + x;
-    let cy:f64 = (h / 2.0) + y;
-    let rx:f64 = w / 2.0;
-    let ry:f64 = h / 2.0;
+    let cx:f64 = get_center(w) + x;
+    let cy:f64 = get_center(h) + y;
+    let rx:f64 = get_center(w);
+    let ry:f64 = get_center(h);
     let mut style:String = "opacity:".to_string();
     style.push_str(opacity.to_string().as_str());
     style.push_str(";fill:");
@@ -134,7 +152,7 @@ pub fn make_sharp(x:f64, y:f64, w:f64, color:&str, opacity:f64) -> Path {
     let tooth = Data::new()
             .move_to((x, y))
             .line_to((x + w, y))
-            .line_to((x + (w / 2.0), y + w))
+            .line_to((x + get_center(w), y + w))
             .close();
     Path::new()
          .set("fill", color)
